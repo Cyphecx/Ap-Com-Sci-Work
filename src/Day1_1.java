@@ -5,10 +5,8 @@ public class Day1_1 {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please Enter a Number");
         int input = scan.nextInt();
-        for(int i = 0; i < input; i++){
-            if(i%2 == 0){
-                System.out.print(i+" ");
-            }
+        for(int i = 1; i < input; i+=2){
+            System.out.print(i+" ");
         }
     }
 }
