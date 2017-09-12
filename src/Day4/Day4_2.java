@@ -1,14 +1,14 @@
 package Day4;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Day4_2 {
     public static void main(String[] args){
         ArrayList<Integer> factors = new ArrayList<Integer>();
         int num = 0;
-        for(int i = 1; factors.size() < 18; i++) {
+        for(int i = 1; factors.size() < 17; i++) {
             factors.clear();
-            for(int k = 1; k < i; k++){
+            for(int k = 1; k < i+1; k++){
                 if(i%k == 0){
                     factors.add(k);
                 }
