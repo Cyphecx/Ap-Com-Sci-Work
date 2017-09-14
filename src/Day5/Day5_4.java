@@ -31,7 +31,7 @@ public class Day5_4 {
     public static ArrayList<Integer> primeFactor(int in){
         int m = in;
         ArrayList<Integer> factors = new ArrayList<Integer>();
-        for(int i = 2; i < m; i++){
+        for(int i = 2; i < in; i++){
             if(m % i == 0){
                 factors.add(i);
                 m /= i;
