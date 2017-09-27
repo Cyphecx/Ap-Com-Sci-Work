@@ -42,8 +42,9 @@ public class Circle{
     public double getCircumference(){
         return 2*Math.PI*radius;
     }
+
     public boolean containsPoint(int x, int y){
-        if(Math.sqrt(Math.pow(x - this.xCenter, 2) + Math.pow(y - this.yCenter, 2)) < this.radius){
+        if(Math.sqrt(Math.pow(x - this.xCenter, 2) + Math.pow(y - this.yCenter, 2)) < radius){
             return true;
         }
         else {
