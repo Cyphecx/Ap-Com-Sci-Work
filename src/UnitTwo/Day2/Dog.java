@@ -1,4 +1,4 @@
-package test;
+package UnitTwo.Day2;
 
 public class Dog {
 	String name = "";
