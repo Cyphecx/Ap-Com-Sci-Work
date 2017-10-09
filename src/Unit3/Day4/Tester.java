@@ -14,30 +14,45 @@ public class Tester {
 
         System.out.println("What are the students names?");
         String names = scan.nextLine();
-
         Student[] students = new Student[studentAmount];
         int pos = 0;
         int spaces = 0;
         for (int i = 0; i < names.length(); i++) {
             if(names.charAt(i) == ' '){
                 spaces++;
-                System.out.println(spaces);
-                if(studentAmount <= 1){
-                    students[spaces] = new Student(names.substring(pos), quizAmount);
-                }
-                else if(spaces == studentAmount-1){
-                    students[spaces-1] = new Student(names.substring(pos, i), quizAmount);
-                    students[spaces] = new Student(names.substring(i+1), quizAmount);
-                }
-
-                else{
-                    pos = i+1;
-                    students[spaces-1] = new Student(names.substring(pos, i), quizAmount);
-                }
             }
         }
+        if(spaces != studentAmount-1){
+            System.out.println("There are an incorrect amount of names");
+            System.exit(3);
+        }
+        spaces = 0;
+        for (int i = 0; i < names.length(); i++) {
+            if(i == names.length()-1){
+                students[spaces] = new Student(names.substring(pos), quizAmount);
+            }
+            else if (names.charAt(i) == ' ') {
+                spaces++;
+                students[spaces-1] = new Student(names.substring(pos,i), quizAmount);
+                pos = i+1;
+            }
+        }
+        for (int i = 0; i < quizAmount; i++) {
+            System.out.println("What is the topic of quiz #" + (i+1));
+            String topic = scan.nextLine();
+            System.out.println("How many total points were on the quiz?");
+            int totalS = scan.nextInt();
+
+            for (Student s:students) {
+                System.out.println("What was " + s.getName() + "'s grade on the " + topic + " quiz");
+                s.addQuiz(topic, scan.nextInt(), totalS);
+            }
+            scan.nextLine();
+            System.out.println();
+        }
+        System.out.println("The averages for each student are: ");
         for (Student s : students) {
-            System.out.println(s.getName());
+            System.out.println(s.getName() + " | " + s.quizAverage());
         }
     }
 }
