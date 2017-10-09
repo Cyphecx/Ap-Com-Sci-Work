@@ -7,6 +7,7 @@ public class Account {
     private int amountWithdrawn = 0;
     private int deposits = 0;
     private int amountDeposited = 0;
+
     public Account(String s, int b){
         this.name = s;
         this.balance = b;
@@ -18,13 +19,20 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-        if(balance < 0){
-            System.out.println("Balance cannot go below zero: " + balance);
-        }
+    public void deposit(int amount){
+        this.balance += amount;
+        deposits++;
+        amountDeposited+=amount;
     }
-
+    public void withdraw(int amount){
+        if(this.balance - amount < 0){
+            System.out.println("Balance cannot go below zero: " + amount);
+            return;
+        }
+        withdrawls++;
+        amountWithdrawn+=amount;
+        this.balance -= amount;
+    }
     public String getName() {
         return name;
     }

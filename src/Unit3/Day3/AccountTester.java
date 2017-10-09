@@ -29,12 +29,12 @@ public class AccountTester {
                 case 2:
                     System.out.println("How much would you like to deposit?");
                     int input = scan.nextInt();
-                    acc.setBalance(acc.getBalance()+input);
+                    acc.deposit(input);
                     break;
                 case 3:
                     System.out.println("How much would you like to withdraw");
                     int in = scan.nextInt();
-                    acc.setBalance(acc.getBalance() - in);
+                    acc.withdraw(in);
                     break;
                 case 4:
                     System.out.println("Bye");
@@ -44,5 +44,13 @@ public class AccountTester {
                     continue loop;
             }
         }
+        System.out.println(acc.getName() + " has a balance of $" + acc.getBalance());
+        System.out.println("Deposits: " + acc.getDeposits());
+        System.out.println("Average deposit value: " + acc.avgDeposit());
+        System.out.println("Withdrawls:" + acc.getWithdrawls());
+        System.out.println("Average withdrawl value: " + acc.avgWithdrawl());
+
     }
 }
+
+
