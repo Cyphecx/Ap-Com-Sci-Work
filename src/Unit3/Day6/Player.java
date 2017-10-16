@@ -33,6 +33,7 @@ public class Player {
     public double getAverage(int type){
         return (double)(stats[type][1])/(double)(stats[type][0]);
     }
+
     public int getNumShots() {
         return numShots;
     }
@@ -49,4 +50,30 @@ public class Player {
         }
     }
 
+    public void printStats(){
+        System.out.println(this.toString());
+        if(this.getAttemptedShots(0) == 0){
+            System.out.println("\tFree throws: "+this.getSuccessfulShots(0) +" out of "+ this.getAttemptedShots(0) +"| 0.0%");
+        }
+        else{
+            System.out.println("\tFree throws: "+this.getSuccessfulShots(0) +" out of "+ this.getAttemptedShots(0) +"| "+ (double)(this.getSuccessfulShots(0)) / (double)(this.getAttemptedShots(0)) +"%");
+        }
+
+        if(this.getAttemptedShots(1) == 0){
+            System.out.println("\tTwo pointers: "+this.getSuccessfulShots(1) +" out of "+ this.getAttemptedShots(1) +"| 0.0%");
+        }
+        else{
+            System.out.println("\tTwo pointers: "+this.getSuccessfulShots(1) +" out of "+ this.getAttemptedShots(1) +"| "+ (double)(this.getSuccessfulShots(1)) / (double)(this.getAttemptedShots(1)) +"%");
+        }
+
+        if(this.getAttemptedShots(2) == 0){
+            System.out.println("\tThree pointers: "+this.getSuccessfulShots(2) +" out of "+ this.getAttemptedShots(2) +"| 0.0%");
+        }
+        else{
+            System.out.println("\tThree pointers: "+this.getSuccessfulShots(2) +" out of "+ this.getAttemptedShots(2) +"| "+ (double)(this.getSuccessfulShots(2)) / (double)(this.getAttemptedShots(2)) +"%");
+        }
+    }
+    public String toString(){
+        return (this.name +" "+ this.number);
+    }
 }
