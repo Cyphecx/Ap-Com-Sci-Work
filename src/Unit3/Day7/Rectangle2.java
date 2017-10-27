@@ -17,7 +17,7 @@ public class Rectangle2 {
             largestArea = this.area;
         }
 
-        if(this.perimeter > largestPerimeter){
+        if(this.perimeter > largestPerimeter) {
             largestPerimeter = this.perimeter;
         }
 
