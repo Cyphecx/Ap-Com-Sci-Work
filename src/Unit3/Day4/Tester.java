@@ -38,13 +38,13 @@ public class Tester {
             }
         }
         for (int i = 0; i < quizAmount; i++) {
-            System.out.println("What is the topic of quiz #" + (i+1));
+            System.out.println("What is the topic of Quiz1 #" + (i+1));
             String topic = scan.nextLine();
-            System.out.println("How many total points were on the quiz?");
+            System.out.println("How many total points were on the Quiz1?");
             int totalS = scan.nextInt();
 
             for (Student s:students) {
-                System.out.println("What was " + s.getName() + "'s grade on the " + topic + " quiz");
+                System.out.println("What was " + s.getName() + "'s grade on the " + topic + " Quiz1");
                 s.addQuiz(topic, scan.nextInt(), totalS);
             }
             scan.nextLine();
