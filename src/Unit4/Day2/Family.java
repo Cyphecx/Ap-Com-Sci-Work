@@ -26,18 +26,38 @@ public class Family {
 
     public void sortByIq(){
         ArrayList<Member> sorted = new ArrayList<Member>();
-
         for (Member m : members) {
+            boolean spotFound = false;
             for (int i = 0; i < sorted.size(); i++) {
                 if(m.getIq() < sorted.get(i).getIq()){
                     sorted.add(i, m);
+                    spotFound = true;
+                    break;
                 }
             }
+            if(!spotFound) {
+                sorted.add(m);
+            }
         }
+        this.members = sorted;
     }
 
     public void sortByAge(){
-
+        ArrayList<Member> sorted = new ArrayList<Member>();
+        for (Member m : members) {
+            boolean spotFound = false;
+            for (int i = 0; i < sorted.size(); i++) {
+                if(m.getAge() < sorted.get(i).getAge()){
+                    sorted.add(i, m);
+                    spotFound = true;
+                    break;
+                }
+            }
+            if(!spotFound) {
+                sorted.add(m);
+            }
+        }
+        this.members = sorted;
     }
     public String toString(){
         String out = "";

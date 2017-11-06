@@ -50,6 +50,14 @@ public class Tester {
                     int newIq = scan.nextInt();
                     fam.changeIq(i, newIq);
                     break;
+                case 5:
+                    fam.sortByAge();
+                    break;
+
+                case 6:
+                    fam.sortByIq();
+                    break;
+
             }
             System.out.println(fam);
         }while(input != 7);
