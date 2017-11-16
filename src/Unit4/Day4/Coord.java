@@ -1,6 +1,6 @@
 package Unit4.Day4;
 
-public class Coord extends Object{
+public class Coord{
     private int x;
     private int y;
 
@@ -22,8 +22,9 @@ public class Coord extends Object{
     }
 
     @Override
-    public boolean equals(Coord c){
-        if(this.x == c.getX() && this.y == c.getY()){
+    public boolean equals(Object c) {
+        Coord c2 = (Coord)c;
+        if(this.x == c2.getX() && this.y == c2.getY()){
             return true;
         }
         return false;
