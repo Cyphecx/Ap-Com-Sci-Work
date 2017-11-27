@@ -59,5 +59,10 @@ public class RentalCar {
         }
         return miles/gallons;
     }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
 }
 

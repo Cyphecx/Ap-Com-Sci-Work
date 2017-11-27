@@ -35,5 +35,10 @@ public class Customer
         return pricePerGallon;
     }
 
+    public String toString()
+    {
+        return customerName+", "+miles+" miles, "+gallons+" gallons";
+    }
+
 }
 
