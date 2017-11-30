@@ -15,7 +15,7 @@ public class RandomWordDel {
 
         int size;
         for (int i = 0; i < words.size(); i++) {
-            if(words.get(i).contains("t")){
+            if(words.get(i).contains("SumBetween")){
                 words.remove(i);
             }
         }
