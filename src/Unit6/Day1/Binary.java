@@ -1,4 +1,6 @@
-package Unit6;
+package Unit6.Day1;
+
+import java.util.Scanner;
 
 public class Binary {
     public static void main(String[] args) {
@@ -10,17 +12,20 @@ public class Binary {
         for (int i = 0; i < nums.length; i++) {
             System.out.print("   |" + (i) + "|. "+ nums[i]);
         }
+        System.out.println();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What do you want to find?");
+        System.out.println(binarySearch(nums, scan.nextInt()));
+        System.out.println();
     }
 
     public static void sort(int[] x){
-        for (int i = 0; i < x.length; i++) {
-            for (int j = i; j < x.length; j++) {
+        for (int i = 0; i < x.length-1; i++) {
+            for (int j = i+1; j < x.length; j++) {
                 if(x[j] < x[i]){
-                    System.out.println(x[i]);
                     int temp = x[i];
                     x[i] = x[j];
                     x[j] = temp;
-                    break;
                 }
             }
         }
@@ -30,6 +35,7 @@ public class Binary {
         int lowerBounds = 0;
         int upperBounds = x.length;
         boolean found = false;
+        int answer=-1;
         while(!found){
             if(lowerBounds-upperBounds >= 0){
                 found = true;
@@ -37,7 +43,9 @@ public class Binary {
             int midDex = (upperBounds + lowerBounds)/2;
 
             if(x[midDex] == key){
-                return midDex;
+                if(midDex < answer || answer == -1){
+                    answer = midDex;
+                }
             }
             else if(x[midDex] < key){
                 lowerBounds = midDex+1;

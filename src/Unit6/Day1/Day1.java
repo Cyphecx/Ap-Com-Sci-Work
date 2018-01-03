@@ -1,4 +1,4 @@
-package Unit6;
+package Unit6.Day1;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class Day1 {
     }
 
     static int linearSearch (int [] x, int key) {
-        for(int i= 0; i < x.length; i++){
+        for(int i = 0; i < x.length; i++){
             if(x[i] == key){
                 return i;
             }
