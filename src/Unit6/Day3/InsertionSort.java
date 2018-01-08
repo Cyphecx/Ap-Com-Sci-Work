@@ -10,19 +10,26 @@ public class InsertionSort {
             System.out.print(i + "/ ");
         }
         System.out.println();
-        insertAtIndex(toSort, 5, 3);
+        insertionSort(toSort);
         for (int i : toSort) {
             System.out.print(i + "/ ");
         }
     }
 
     public static void insertionSort(int[] arry){
-        int sorted=0;
+        int comparisons = 0;
+        outer:
         for (int i = 0; i < arry.length; i++) {
-            for (int j = 0; j < 0; j++) {
-
+            for (int j = i-1; j >= 0; j--) {
+                if(arry[i] > arry[j]){
+                    insertAtIndex(arry, i, j+1);
+                    continue outer;
+                }
+                comparisons++;
             }
+            insertAtIndex(arry, i, 0);
         }
+        System.out.println(comparisons);
     }
 
 
