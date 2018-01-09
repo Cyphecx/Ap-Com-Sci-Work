@@ -2,9 +2,9 @@ package Unit6.Day3;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] toSort = new int[10];
+        int[] toSort = new int[10000];
         for (int i = 0; i < toSort.length; i++) {
-            toSort[i]= (int)(Math.random()*100);
+            toSort[i]= (int)(Math.random()*10000);
         }
         for (int i : toSort) {
             System.out.print(i + "/ ");
