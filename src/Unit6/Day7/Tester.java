@@ -1,5 +1,7 @@
 package Unit6.Day7;
 
+import Unit3.Quiz1.Friends;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,8 +18,8 @@ public class Tester {
                     "3 – Sort the friends by age\n" +
                     "4 – Delete a friend by name\n" +
                     "5 – Change name of a friend, by name\n" +
-                    "6 – Change age of a friend, by name" +
-                    "1 – Exit\n");
+                    "6 – Change age of a friend, by name\n" +
+                    "7 – Exit\n");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -58,9 +60,102 @@ public class Tester {
                         System.out.println(in + " was not found");
                     }
                     break;
+                case 3:
+                    friends = mergeSort(friends);
+                    break;
+
+                case 4:
+                    System.out.println("what is the person's name?");
+                    in = scan.nextLine();
+                    found = false;
+                    for(int i = 0; i < friends.size(); i++){
+                        if (friends.get(i).getName().equals(in)){
+                            friends.remove(i);
+                            found = true;
+                        }
+                    }
+                    if(!found) {
+                        System.out.println(in + " was not found");
+                        break;
+                    }
+                    break;
+                case 5:
+                    System.out.println("what is the person's name?");
+                    in = scan.nextLine();
+                    MyFriend f = new MyFriend("",0);
+                    found = false;
+                    for(int i = 0; i < friends.size(); i++){
+                        if (friends.get(i).getName().equals(in)){
+                            f = friends.get(i);
+                            found = true;
+                        }
+                    }
+                    if(!found) {
+                        System.out.println(in + " was not found");
+                        break;
+                    }
+                    System.out.println("what is the new name?");
+                    f.setName(scan.nextLine());
+                    break;
+                case 6:
+                    System.out.println("Who's age do you want to change?");
+                    in = scan.nextLine();
+                    f = new MyFriend("",0);
+                    found = false;
+                    for(int i = 0; i < friends.size(); i++){
+                        if (friends.get(i).getName().equals(in)){
+                            f = friends.get(i);
+                            found = true;
+                        }
+                    }
+                    if(!found) {
+                        System.out.println(in + " was not found");
+                        break;
+                    }
+                    System.out.println("what is the new age?");
+                    f.setAge(scan.nextInt());
+                    scan.nextLine();
+                    break;
+                case 7:
+                    System.exit(12903);
+                    break;
             }
             System.out.println();
         }
 
+    }
+    public static ArrayList mergeSort(ArrayList<MyFriend> friends){
+        if(friends.size() <= 1){
+            return friends;
+        }
+        else{
+            ArrayList<MyFriend> lowerHalf = new ArrayList<>(friends.subList(0,friends.size()/2));
+            ArrayList<MyFriend> upperHalf = new ArrayList<>(friends.subList(friends.size()/2,friends.size()));
+            return merge(mergeSort(lowerHalf), mergeSort(upperHalf));
+        }
+    }
+
+    public static ArrayList merge(ArrayList<MyFriend> lower, ArrayList<MyFriend> upper){
+        ArrayList out = new ArrayList();
+        while(lower.size() > 0 && upper.size() > 0){
+            if(lower.get(0).getName().charAt(0) < upper.get(0).getName().charAt(0)){
+                out.add(lower.get(0));
+                lower.remove(0);
+            }
+            else{
+                out.add(upper.get(0));
+                upper.remove(0);
+            }
+        }
+        while(lower.size() > 0){
+            out.add(lower.get(0));
+            lower.remove(0);
+        }
+        while(upper.size() > 0){
+
+            out.add(upper.get(0));
+            upper.remove(0);
+        }
+        return out;
     }
 }
