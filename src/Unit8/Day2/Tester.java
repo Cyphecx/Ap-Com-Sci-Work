@@ -46,6 +46,7 @@ public class Tester {
                     employees.add(new Hourly(name, year, rate));
                     break;
             }
+            scan.nextLine();
             for(Employee e : employees){
                 System.out.println(e);
             }
