@@ -7,4 +7,7 @@ public class Tractor extends Vehicle{
     public int getTopSpeed(){
         return 15;
     }
+    public String toString(){
+        return "Tractor| "+ super.toString();
+    }
 }

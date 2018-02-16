@@ -9,4 +9,8 @@ public class Hare extends Animal{
     public int getTopSpeed(){
         return 3;
     }
+
+    public String toString(){
+        return "Hare| "+ super.toString();
+    }
 }

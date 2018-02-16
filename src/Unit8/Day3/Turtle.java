@@ -9,4 +9,7 @@ public class Turtle extends Animal{
     public int getTopSpeed() {
         return 1;
     }
+    public String toString(){
+        return "Turtle| "+ super.toString();
+    }
 }
