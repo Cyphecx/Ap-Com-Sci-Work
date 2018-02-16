@@ -7,7 +7,7 @@ public class Car extends Vehicle{
     public int getTopSpeed(){
         return 200;
     }
-    public String toString(){
+    public String oString(){
         return "Car| "+ super.toString();
     }
 }
