@@ -12,6 +12,6 @@ public class Dog extends Mover {
 
     @Override
     public String toString() {
-        return super.toString()+ "Age= "+this.age +" Name= " + this.name;
+        return super.toString()+ " | Age= "+this.age +" Name= " + this.name;
     }
 }

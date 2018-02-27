@@ -22,7 +22,7 @@ public class test {
                 int t = scan.nextInt();
                 movers.add(new Car(y,m,t));
             }
-            if(choice == 2){
+            else if(choice == 2){
                 System.out.println("Enter a name");
                 String n = scan.nextLine();
                 System.out.println("Enter an age");
@@ -35,11 +35,13 @@ public class test {
                 end = 1;
             }
         }
-        Dog smallest = new Dog(0,"",Integer.MAX_VALUE);
         int sIndex = 0;
+
         for (int i = 0; i < movers.size(); i++) {
+            Mover smallest = new Dog(0,"",Integer.MAX_VALUE);
             for (int j = i; j < movers.size(); j++) {
-                if(movers.get(j).compareTo(smallest) == -1){
+                if(movers.get(j).compareTo(smallest) < 0){
+                    smallest = movers.get(j);
                     sIndex = j;
                 }
             }
